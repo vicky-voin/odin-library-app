@@ -10,7 +10,7 @@ html
     justify-content: start;
     gap: 48px;
 }
-
+  
 .new-book
 {
     width: 200px;
@@ -48,4 +48,9 @@ html
 {
     height: 36px;
     width: 36px;
+}
+
+#add-book > form
+{
+    display: grid;
 }

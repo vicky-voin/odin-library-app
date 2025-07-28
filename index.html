@@ -13,12 +13,28 @@
 
     <button class="new-book">+ Add New</button>
     </div>
-    
+
+    <dialog id="add-book">
+        <form>
+            <label>Add a new book:</label>
+            <br>
+            <label for="book-title">Title: <input type="text" id="book-title" name="title"/></label>
+            <label for="book-author">Author: <input type="text" id="book-author" name="author"/></label>
+            <label for="book-status">Is completed? <input type="checkbox" id="book-status" name="completed"/></label>
+            <br>
+            <div>
+                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button value="default" id="submitBtn">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+
     <template id="book-card">
         <div class="card-root">
             <div class="card-title">Title</div>
             <div class="card-subtitle">Author</div>
-            <input class="card-status" type="checkbox" value="false">
+            <input class="card-status" type="checkbox" value="false" disabled>
+            <button class="card-remove">Delete</button>
         </div>
     </template>
     <script src="app.js"></script>
