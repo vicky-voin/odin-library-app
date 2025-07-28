@@ -7,7 +7,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Test</h1>
+    <h1>My Library</h1>
+
+    <div class="books">
+
+    <button class="new-book">+ Add New</button>
+    </div>
+    
+    <template id="book-card">
+        <div class="card-root">
+            <div class="card-title">Title</div>
+            <div class="card-subtitle">Author</div>
+            <input class="card-status" type="checkbox" value="false">
+        </div>
+    </template>
     <script src="app.js"></script>
 </body>
 </html>

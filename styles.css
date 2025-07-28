@@ -1,4 +1,51 @@
-h1
+html
 {
-    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.books
+{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    gap: 48px;
+}
+
+.new-book
+{
+    width: 200px;
+    font-size: 1.5em;
+}
+
+.card-root
+{
+    background-color: rgb(134, 168, 231);
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+    width: 150px;
+    height: 200px;
+    padding: 36px;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    border-radius: 8px;
+}
+
+.card-root div
+{
+    text-align: center;
+    color: white;
+}
+
+.card-title
+{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.card-status
+{
+    height: 36px;
+    width: 36px;
 }
