@@ -1,4 +1,3 @@
-
 const myLibrary = [];
 
 addBookToLibrary("Jane Austen", "Pride and Prejudice", true);
@@ -60,6 +59,11 @@ function addBookToLibrary(author, title, wasRead)
     return book;
 }
 
+function removeFromLibrary(id)
+{
+    myLibrary.splice(myLibrary.findIndex(x=>x.id == id),1);
+}
+
 function displayBooks()
 {
     myLibrary.forEach(book => {
@@ -69,17 +73,24 @@ function displayBooks()
 }
 
 function displayBook(book){
-
     const template = document.querySelector("#book-card");
     const booksContainer = document.querySelector(".books");
 
-    const card = template.content.cloneNode(true);
+    const cardFragment = template.content.cloneNode(true);
+    const cardElem = cardFragment.querySelector(".card-root"); // Adjust selector to your card root
 
-    card.querySelector(".card-title").textContent = book.title;
-    card.querySelector(".card-subtitle").textContent = book.author;
-    card.querySelector(".card-status").checked = book.wasRead;
+    cardElem.querySelector(".card-title").textContent = book.title;
+    cardElem.querySelector(".card-subtitle").textContent = book.author;
+    cardElem.querySelector(".card-status").checked = book.wasRead;
+    cardElem.querySelector(".card-remove").addEventListener("click", ()=>
+    {
+        booksContainer.removeChild(cardElem);
+        removeFromLibrary(cardElem.dataset.id);
+    });
 
-    booksContainer.appendChild(card);
+    cardElem.dataset.id = book.id;
+
+    booksContainer.appendChild(cardElem);
 }
 
 function displayDialog()
