@@ -51,6 +51,10 @@ function Book(author, title, wasRead)
     this.wasRead = wasRead;
 }
 
+Book.prototype.toggleStatus = function () {
+    this.wasRead = !this.wasRead;
+}
+
 function addBookToLibrary(author, title, wasRead)
 {
     let book = new Book(author, title, wasRead);
@@ -81,7 +85,12 @@ function displayBook(book){
 
     cardElem.querySelector(".card-title").textContent = book.title;
     cardElem.querySelector(".card-subtitle").textContent = book.author;
-    cardElem.querySelector(".card-status").checked = book.wasRead;
+    const checkbox = cardElem.querySelector(".card-status")
+    checkbox.checked = book.wasRead;
+    checkbox.addEventListener("change", (e) => {
+        book.toggleStatus();
+    });
+
     cardElem.querySelector(".card-remove").addEventListener("click", ()=>
     {
         booksContainer.removeChild(cardElem);
