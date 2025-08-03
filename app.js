@@ -1,3 +1,19 @@
+class Book
+{
+    constructor(author, title, wasRead)
+    {
+        this.id = crypto.randomUUID();
+        this.author = author;
+        this.title = title;
+        this.wasRead = wasRead;
+    }
+
+    toggleStatus()
+    {
+        this.wasRead = !this.wasRead;
+    }
+}
+
 const myLibrary = [];
 
 addBookToLibrary("Jane Austen", "Pride and Prejudice", true);
@@ -37,23 +53,6 @@ addNewBtn.addEventListener("click", () =>
 {
     displayDialog();
 });
-
-function Book(author, title, wasRead)
-{
-    if(!new.target)
-    {
-        throw Error("Please use 'new' operator to call the constructor!");
-    }
-
-    this.id = crypto.randomUUID();
-    this.author = author;
-    this.title = title;
-    this.wasRead = wasRead;
-}
-
-Book.prototype.toggleStatus = function () {
-    this.wasRead = !this.wasRead;
-}
 
 function addBookToLibrary(author, title, wasRead)
 {
